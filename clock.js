@@ -23,6 +23,9 @@ time3.innerHTML = `${timeRio} <small>${moment.tz("America/Sao_Paulo").format("A"
 }, 1000);
 function display(event) {
     let zone = event.target.value;
+    if (zone === "current location") {
+     zone = moment.tz.guess();
+    }
     let selectCities= moment.tz(zone).format("h:m:s");
     let city = document.querySelector("#city");
     let cityName = zone.replace("_", " ").split("/")[1];
