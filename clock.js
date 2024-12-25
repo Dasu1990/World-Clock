@@ -38,6 +38,7 @@ function display(event) {
               </div>
              <div class="time">${selectCities} <small>${moment.tz(zone).format("A")}</small></div>
             </div>
+            <a href="index.html">All City</>
     `;
 }
 let selectCity = document.querySelector("#cities");
