@@ -22,7 +22,20 @@ let time3 = document.querySelector("#third-city .time");
 time3.innerHTML = `${timeRio} <small>${moment.tz("America/Sao_Paulo").format("A")}`;
 }, 1000);
 function display(event) {
-    console.log(event.target.value);
+    let zone = event.target.value;
+    let selectCities= moment.tz(zone).format("h:m:s");
+    let city = document.querySelector("#city");
+    let cityName = zone.replace("_", " ").split("/")[1];
+     // city.innerHTML =`the current time of ${event.target.value} is ${selectCities}`;
+    city.innerHTML = `
+            <div class="cities" id="third-city">
+              <div class="third-city">
+              <h2>${cityName}</h2>
+              <div class="date">${moment.tz(zone).format("MMMM Do YYYY")}</div>
+              </div>
+             <div class="time">${selectCities} <small>${moment.tz(zone).format("A")}</small></div>
+            </div>
+    `;
 }
 let selectCity = document.querySelector("#cities");
 selectCity.addEventListener("change", display);
